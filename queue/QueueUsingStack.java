@@ -6,20 +6,21 @@ public class QueueUsingStack {
         Stack<Integer> b = new Stack<>();
 
         public void add(int x) {
-            a.push(x); // O(1)
+            while (!a.isEmpty()) {
+                b.push(a.pop());
+            }
+            a.push(x);
+            while (!b.isEmpty()) {
+                a.push(b.pop());
+            }
         }
 
         public int remove() {
-            if (a.isEmpty() && b.isEmpty())
+            if (a.isEmpty())
                 return -1;
-            if (!b.isEmpty())
-                return b.pop();
-            else {
-                while (!a.isEmpty()) {
-                    b.push(a.pop()); // O(N) removing
-                }
-                return b.pop();
-            }
+            else
+                return a.pop();
+
         }
     }
 
@@ -28,9 +29,12 @@ public class QueueUsingStack {
         q.add(10);
         q.add(20);
         q.add(30);
+        for (int i = 0; i < 2; i++) {
+            System.out.println(q.remove());
+        }
         q.add(40);
         q.add(50);
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             System.out.println(q.remove());
         }
 
