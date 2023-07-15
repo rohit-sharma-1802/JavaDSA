@@ -22,6 +22,6 @@ public class FirstNonRepeatingCharacter {
     }
 
     public static void main(String[] args) {
-        System.out.println(fnrc("aabcxb"));
+        System.out.println(fnrc("aaaaaaa"));
     }
 }
