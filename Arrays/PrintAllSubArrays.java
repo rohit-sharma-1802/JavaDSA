@@ -1,31 +1,28 @@
 public class PrintAllSubArrays {
 
     public static void printPairs(int a[]) {
-        int minSum = Integer.MAX_VALUE;
         int maxSum = Integer.MIN_VALUE;
-        for (int i = 0; i < a.length; i++) {
-            for (int j = i; j < a.length; j++) {
-                int min = 0;
-                int max = 0;
-                for (int k = i; k <= j; k++) {
-                    // System.out.print(a[k] + ", ");
-                    min += a[k];
-                    max += a[k];
+        int n = a.length;
+        int prefix[] = new int[a.length];
+        prefix[0] = a[0];
 
-                }
-                if (minSum > min)
-                    minSum = min;
-                if (maxSum < max)
-                    maxSum = max;
+        // calculating prefix sum of the array
+        for (int i = 1; i < prefix.length; i++)
+            prefix[i] = prefix[i - 1] + a[i];
+
+        for (int i = 0; i < n; i++) {
+            int currSum = 0;
+            for (int j = i; j < n; j++) {
+                currSum = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1];
+                maxSum = Math.max(maxSum, currSum);
             }
         }
 
-        System.out.println("Min Sum: " + minSum);
         System.out.println("Max Sum: " + maxSum);
     }
 
     public static void main(String[] args) {
-        int arr[] = { 2, 4, 6, 8, 10 };
+        int arr[] = { -2, -3, 4, -1, -2, 1, 5, -3 };
         printPairs(arr);
     }
 }
