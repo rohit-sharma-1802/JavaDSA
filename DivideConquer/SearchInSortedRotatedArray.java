@@ -1,7 +1,5 @@
 package DivideConquer;
 
-import java.util.*;
-
 public class SearchInSortedRotatedArray {
     public static int search(int arr[], int target, int start, int end) {
 

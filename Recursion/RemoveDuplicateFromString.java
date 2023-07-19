@@ -27,7 +27,7 @@ public class RemoveDuplicateFromString {
     }
 
     public static void main(String[] args) {
-        String str = "rohitsharma";
+        String str = "rohit";
         System.out.println(removeDuplicate(str));
     }
 }
