@@ -1,6 +1,7 @@
 package Recursion;
 
 public class TilingProblem {
+
     public static int totalWaysOfTiling(int n) {
         return n == 0 || n == 1 ? 1 : totalWaysOfTiling(n - 1) + totalWaysOfTiling(n - 2);
     }
